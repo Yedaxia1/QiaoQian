@@ -1,0 +1,53 @@
+from PyQt5.QtWidgets import QDialog
+from PyQt5.QtGui import QImage, QPixmap
+from .procui import Ui_proc
+import numpy as np
+import cv2
+
+
+class AppFrame(QDialog):
+    def __init__(self):
+        super(AppFrame, self).__init__()
+        self.ui = Ui_proc()
+        self.ui.setupUi(self)
+        # 加载图像
+        self.img = cv2.imread("./imgapp/gpu.bmp")
+        self.show_img(self.img)
+        self.show()
+
+    def show_img(self, src_img):
+        # 转换为Qt的图像
+        q_img = QImage(
+            src_img.tobytes(),
+            src_img.shape[1], src_img.shape[0],
+            src_img.shape[1] * src_img.shape[2],
+            QImage.Format_BGR888
+        )
+        # 转换为像素图
+        q_pixmap = QPixmap.fromImage(q_img)
+        # 显示
+        self.ui.lbl_img.setPixmap(q_pixmap)
+        self.ui.lbl_img.setScaledContents(True)
+
+    def img_ori(self):
+        # 原图
+        self.show_img(self.img)
+
+    def img_sobel_x(self):
+        # 图像特征处理
+        i_sobel = cv2.Sobel(self.img, -1, 1, 0, scale=1, delta=0)
+        # 显示
+        self.show_img(i_sobel)
+
+    def img_soble_y(self):
+        i_sobel = cv2.Sobel(self.img, -1, 0, 1, scale=1, delta=0)
+        self.show_img(i_sobel)
+
+    def img_sobel_xy(self):
+        i_sobel = cv2.Sobel(self.img, -1, 1, 1, scale=1, delta=0)
+        self.show_img(i_sobel)
+
+    def img_Laplace(self):
+        kernel = np.array([[0, -1, 0], [0, 5, 0], [0, -1, 0]])  # 定义卷积核
+        laplace = cv2.filter2D(self.img, -1, kernel, scale=1, delta=0)
+        self.show_img(laplace)

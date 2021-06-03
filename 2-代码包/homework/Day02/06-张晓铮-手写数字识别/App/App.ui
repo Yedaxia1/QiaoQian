@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Predicate</class>
+ <widget class="QDialog" name="Predicate">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>508</width>
+    <height>424</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>30</y>
+     <width>481</width>
+     <height>381</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout" stretch="5,0,0">
+    <item>
+     <widget class="QLabel" name="CamLabel">
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="open_button">
+        <property name="text">
+         <string>开始摄像</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="cap_button">
+        <property name="text">
+         <string>拍摄</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pre_button">
+        <property name="text">
+         <string>预测</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QLabel" name="label_2">
+        <property name="font">
+         <font>
+          <family>Anonymice Powerline</family>
+          <pointsize>16</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>结果：</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="res_label">
+        <property name="font">
+         <font>
+          <family>Anonymice Powerline</family>
+          <pointsize>16</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_4">
+        <property name="font">
+         <font>
+          <family>Anonymice Powerline</family>
+          <pointsize>16</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>置信度：</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="prob_label">
+        <property name="font">
+         <font>
+          <family>Anonymice Powerline</family>
+          <pointsize>16</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>open_button</sender>
+   <signal>clicked()</signal>
+   <receiver>Predicate</receiver>
+   <slot>begin()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>111</x>
+     <y>354</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>4</x>
+     <y>322</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cap_button</sender>
+   <signal>clicked()</signal>
+   <receiver>Predicate</receiver>
+   <slot>cap()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>231</x>
+     <y>357</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>498</x>
+     <y>315</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pre_button</sender>
+   <signal>clicked()</signal>
+   <receiver>Predicate</receiver>
+   <slot>predicate()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>424</x>
+     <y>364</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>497</x>
+     <y>342</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>begin()</slot>
+  <slot>cap()</slot>
+  <slot>predicate()</slot>
+ </slots>
+</ui>

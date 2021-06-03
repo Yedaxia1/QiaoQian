@@ -1,0 +1,1 @@
+@pyuic5 -o procui.py  proc.ui
